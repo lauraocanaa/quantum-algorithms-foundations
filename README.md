@@ -11,7 +11,7 @@ computing, numerical PDE methods, and computational nuclear physics.
 |---|-----------|----------------------|--------|------------|
 | 01 | Bell state | Entanglement, superposition | 2 | 50.6% \|00⟩ / 49.4% \|11⟩, 0% leakage into \|01⟩/\|10⟩ (1000 shots) — consistent with ideal Bell state within statistical noise |
 | 02 | Deutsch's algorithm | Query complexity separation, oracle design | 1 | All 4 oracle cases verified against expected output |
-| 03 | Deutsch–Jozsa (n-qubit) | Generalised oracle, exponential classical/quantum query gap | n = 3 | Constant (f=0, f=1) and balanced oracles all correctly classified with 100% measurement consistency (1024/1024 shots each) |
+| 03 | Deutsch–Jozsa (n-qubit) | Generalised oracle, exponential classical/quantum query gap | n = 2, 3, 4 | Constant (f=0, f=1) and balanced oracles correctly classified with 100% measurement consistency at every tested n (1024/1024 shots each) |
 | 04 | Grover's algorithm | Amplitude amplification | 2 | Measured: 100% (1024/1024 shots) vs theoretical 100% (exact resonance at k=1 iteration, N=4, M=1) |
 | 05 | Grover's algorithm | Amplitude amplification, iteration-count scaling | 3 | Measured: 94.04% vs theoretical 94.5% |
 

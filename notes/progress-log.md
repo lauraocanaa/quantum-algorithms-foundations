@@ -27,9 +27,7 @@ fallback backend.
 - **Implemented:** 2-qubit Grover's algorithm — built a phase oracle marking a target bitstring via X gates conjugating a controlled-Z (flipping 0-bits before/after the CZ so the phase flip lands only on the marked state), and a diffusion operator (H⊗H, reflection about `|00⟩` reusing the oracle construction, H⊗H). Marked `|11⟩` with 1 iteration — the theoretically optimal k for N=4, M=1. Measured 100% success (1024/1024 shots), matching the exact-resonance prediction for this configuration.
 - **Implemented:** 3-qubit Grover's algorithm — generalized the oracle and diffusion operator to 3 qubits using a multi-controlled Z built from H + CCX + H on the target qubit (the 3-qubit analogue of the 2-qubit CZ), with the same conjugate-flip structure to mark an arbitrary target state. Marked `|101⟩` with k=2 iterations, chosen via k = round((π/4)√8 − 0.5) for N=8, M=1. Measured 94.04% success vs a theoretical 94.5% — illustrating the near-resonance case, where the optimal integer iteration count doesn't land exactly on the amplitude peak (unlike the 2-qubit case above, which hits exact resonance).
 
-## Notes on this log
+## Week 4
 
-This is a working log, not a polished writeup — it exists to track what was studied and
-built over the course of the project. Cleaned-up derivations, validated results, and
-final implementations are documented in the individual notebooks and summarised in the
-main README.
+- **Implemented:** Infinite square well solved via finite-difference discretization (tridiagonal Hamiltonian, natural units ħ=m=L=1). Validated against analytic eigenvalues E_n = n²π²/2. Convergence rate measured at 1.998 (theoretical prediction: 2.0), confirming O(h²) accuracy of the central difference scheme.
+

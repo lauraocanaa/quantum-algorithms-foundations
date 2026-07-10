@@ -30,4 +30,5 @@ fallback backend.
 ## Week 4
 
 - **Implemented:** Infinite square well solved via finite-difference discretization (tridiagonal Hamiltonian, natural units ħ=m=L=1). Validated against analytic eigenvalues E_n = n²π²/2. Convergence rate measured at 1.998 (theoretical prediction: 2.0), confirming O(h²) accuracy of the central difference scheme.
+Eigenvector validation complete: numerical eigenvectors (N=500) match analytic ψₙ(x)=√(2/L)sin(nπx/L) for n=1,2,3 to visual precision. Eigenvalue errors: 1.62e-05 (n=1), 2.59e-04 (n=2), 1.31e-03 (n=3), consistent with expected growth in finite-difference error at higher curvature. Debugged a stale-N grid-spacing mismatch causing a ~π factor amplitude error — dx must be derived from the same N used to build H.
 

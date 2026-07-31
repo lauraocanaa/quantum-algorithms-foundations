@@ -9,7 +9,7 @@ Rather than simply reproducing textbook circuits, each notebook develops the mat
 The project was developed as part of my undergraduate studies in Mathematics and forms part of a broader computational physics portfolio.
 
 ## Overview
-| # | Algorithm | Concept demonstrated | Qubits | Validation |
+| # | Algorithm | Concept demonstrated | Qubits | Validation Results |
 |---|-----------|----------------------|--------|------------|
 | 01 | Bell state | Entanglement, superposition | 2 | 50.6% \|00⟩ / 49.4% \|11⟩, 0% leakage into \|01⟩/\|10⟩ (1000 shots) — consistent with ideal Bell state within statistical noise |
 | 02 | Deutsch's algorithm | Query complexity separation, oracle design | 1 | All 4 oracle cases verified against expected output |

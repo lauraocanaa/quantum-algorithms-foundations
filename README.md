@@ -6,7 +6,7 @@
 
 This repository implements and validates several of the foundational algorithms of quantum computation using Qiskit.
 Rather than simply reproducing textbook circuits, each notebook develops the mathematical framework behind the algorithm, constructs the quantum circuit from first principles, and compares simulation results with theoretical predictions.
-The project was developed as part of my undergraduate studies in Mathematics and forms part of a broader computational physics portfolio.
+This repository was developed independently alongside my undergraduate Physics studies as part of a broader interest in computational physics and quantum computing.
 
 ## Overview
 | # | Algorithm | Concept demonstrated | Qubits | Validation Results |
@@ -19,21 +19,21 @@ The project was developed as part of my undergraduate studies in Mathematics and
 
 ## Objectives
 
-Each notebook
-- derives the underlying mathematics
-- constructs the quantum circuit
-- validates the algorithm numerically
-- compares theoretical and simulated results
+Each notebook aims to:
+- derive the mathematical foundations of the algorithm
+- construct the corresponding quantum circuit from first principles
+- validate simulation results against theoretical predictions
+- explain the source of the algorithm's quantum advantage
 
 ## Learning progression
 
-Bell States
-↓
-Deutsch
-↓
-Deutsch–Jozsa
-↓
-Grover
+| Stage         | Concept                        |
+| ------------- | ------------------------------ |
+| Bell states   | Superposition and entanglement |
+| Deutsch       | Oracle-based computation       |
+| Deutsch–Jozsa | Quantum query complexity       |
+| Grover        | Amplitude amplification        |
+
 
 ## Repository structure
 
@@ -56,7 +56,7 @@ Grover
 
 ## Environment & reproducibility
 
-Tested on
+Tested using:
 - Python 3.13
 - Qiskit 2.4.1
 - Qiskit Aer
@@ -76,12 +76,15 @@ jupyter notebook notebooks/
 
 - Nielsen, M. & Chuang, I., *Quantum Computation and Quantum Information*, Ch. 1–4
 - IBM Quantum Learning modules (Basics of Quantum Information, Quantum Algorithms)
+- Grover, L. K. (1996). A fast quantum mechanical algorithm for database search.
 
-## Roadmap
+## Future Work
 
-This repository is scoped to foundational, non-variational quantum algorithms. Follow-on
-work extending these ideas to hybrid quantum-classical methods (Variational Quantum
-Eigensolver for molecular systems) continues in a separate repository: [link once created].
+Potential extensions include:
+- Quantum Fourier Transform
+- Quantum Phase Estimation
+- Variational Quantum Eigensolver
+- Quantum Approximate Optimization Algorithm (QAOA)
 
 ## Development log
 

@@ -17,6 +17,10 @@ This repository was developed independently alongside my undergraduate Physics s
 | 04 | Grover's algorithm | Amplitude amplification | 2 | Measured: 100% (1024/1024 shots) vs theoretical 100% (exact resonance at k=1 iteration, N=4, M=1) |
 | 05 | Grover's algorithm | Amplitude amplification, iteration-count scaling | 3 | Measured: 94.04% vs theoretical 94.5% |
 
+![Bell state measurement outcomes](assets/bell_state_histogram.png)
+
+![3-qubit Grover measurement distribution](assets/grover_3qubit_histogram.png)
+
 ## Objectives
 
 Each notebook aims to:

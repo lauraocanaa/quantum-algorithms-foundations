@@ -1,10 +1,12 @@
+![Python](https://img.shields.io/badge/Python-3.13-blue)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Qiskit](https://img.shields.io/badge/Qiskit-2.4.1-purple)
+
 # Quantum Algorithms: Foundations
 
-Implementation and empirical validation of foundational quantum algorithms, built as
-groundwork for hybrid quantum-classical methods (variational algorithms, quantum
-simulation). Part of a broader portfolio in computational physics and applied
-mathematics — see [profile README] for the full set of projects spanning quantum
-computing, numerical PDE methods, and computational nuclear physics.
+This repository implements and validates several of the foundational algorithms of quantum computation using Qiskit.
+Rather than simply reproducing textbook circuits, each notebook develops the mathematical framework behind the algorithm, constructs the quantum circuit from first principles, and compares simulation results with theoretical predictions.
+The project was developed as part of my undergraduate studies in Mathematics and forms part of a broader computational physics portfolio.
 
 ## Overview
 | # | Algorithm | Concept demonstrated | Qubits | Validation |

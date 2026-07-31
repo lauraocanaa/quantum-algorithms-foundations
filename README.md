@@ -17,18 +17,23 @@ The project was developed as part of my undergraduate studies in Mathematics and
 | 04 | Grover's algorithm | Amplitude amplification | 2 | Measured: 100% (1024/1024 shots) vs theoretical 100% (exact resonance at k=1 iteration, N=4, M=1) |
 | 05 | Grover's algorithm | Amplitude amplification, iteration-count scaling | 3 | Measured: 94.04% vs theoretical 94.5% |
 
-## Background
+## Objectives
 
-Each notebook implements the algorithm from first principles in Qiskit and includes:
-- the mathematical derivation of the circuit (state evolution in Dirac notation)
-- an explanation of why the algorithm achieves its query/computational advantage
-- construction and justification of the oracle, where applicable
-- empirical measurement results compared against the closed-form theoretical prediction
+Each notebook
+- derives the underlying mathematics
+- constructs the quantum circuit
+- validates the algorithm numerically
+- compares theoretical and simulated results
 
-The sequence is deliberate: Bell states establish entanglement and multi-qubit state
-manipulation; Deutsch and Deutsch–Jozsa establish oracle-based query algorithms and the
-classical/quantum separation; Grover (2- and 3-qubit) introduces amplitude amplification
-and demonstrates how success probability scales with iteration count and qubit number.
+## Learning progression
+
+Bell States
+↓
+Deutsch
+↓
+Deutsch–Jozsa
+↓
+Grover
 
 ## Repository structure
 
@@ -51,9 +56,13 @@ and demonstrates how success probability scales with iteration count and qubit n
 
 ## Environment & reproducibility
 
-- Python 3.13, Qiskit 2.4.1, Qiskit-Aer, Jupyter (see `requirements.txt` for pinned versions)
-- **Known issue:** Qiskit-Aer has a reported import hang on Windows + Python 3.13 on
-  first run; it resolves on its own. `StatevectorSampler` works as a fallback backend.
+Tested on
+- Python 3.13
+- Qiskit 2.4.1
+- Qiskit Aer
+
+**Known issue:** Qiskit-Aer has a reported import hang on Windows + Python 3.13 on
+first run; it resolves on its own. `StatevectorSampler` works as a fallback backend.
 
 To reproduce:
 ```bash

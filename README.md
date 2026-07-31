@@ -1,13 +1,15 @@
+![Python](https://img.shields.io/badge/Python-3.13-blue)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Qiskit](https://img.shields.io/badge/Qiskit-2.4.1-purple)
+
 # Quantum Algorithms: Foundations
 
-Implementation and empirical validation of foundational quantum algorithms, built as
-groundwork for hybrid quantum-classical methods (variational algorithms, quantum
-simulation). Part of a broader portfolio in computational physics and applied
-mathematics — see [profile README] for the full set of projects spanning quantum
-computing, numerical PDE methods, and computational nuclear physics.
+This repository implements and validates several of the foundational algorithms of quantum computation using Qiskit.
+Rather than simply reproducing textbook circuits, each notebook develops the mathematical framework behind the algorithm, constructs the quantum circuit from first principles, and compares simulation results with theoretical predictions.
+This repository was developed independently alongside my undergraduate Physics studies as part of a broader interest in computational physics and quantum computing.
 
 ## Overview
-| # | Algorithm | Concept demonstrated | Qubits | Validation |
+| # | Algorithm | Concept demonstrated | Qubits | Validation Results |
 |---|-----------|----------------------|--------|------------|
 | 01 | Bell state | Entanglement, superposition | 2 | 50.6% \|00⟩ / 49.4% \|11⟩, 0% leakage into \|01⟩/\|10⟩ (1000 shots) — consistent with ideal Bell state within statistical noise |
 | 02 | Deutsch's algorithm | Query complexity separation, oracle design | 1 | All 4 oracle cases verified against expected output |
@@ -15,18 +17,27 @@ computing, numerical PDE methods, and computational nuclear physics.
 | 04 | Grover's algorithm | Amplitude amplification | 2 | Measured: 100% (1024/1024 shots) vs theoretical 100% (exact resonance at k=1 iteration, N=4, M=1) |
 | 05 | Grover's algorithm | Amplitude amplification, iteration-count scaling | 3 | Measured: 94.04% vs theoretical 94.5% |
 
-## Background
+![Bell state measurement outcomes](assets/bell_state_histogram.png)
 
-Each notebook implements the algorithm from first principles in Qiskit and includes:
-- the mathematical derivation of the circuit (state evolution in Dirac notation)
-- an explanation of why the algorithm achieves its query/computational advantage
-- construction and justification of the oracle, where applicable
-- empirical measurement results compared against the closed-form theoretical prediction
+![3-qubit Grover measurement distribution](assets/grover_3qubit_histogram.png)
 
-The sequence is deliberate: Bell states establish entanglement and multi-qubit state
-manipulation; Deutsch and Deutsch–Jozsa establish oracle-based query algorithms and the
-classical/quantum separation; Grover (2- and 3-qubit) introduces amplitude amplification
-and demonstrates how success probability scales with iteration count and qubit number.
+## Objectives
+
+Each notebook aims to:
+- derive the mathematical foundations of the algorithm
+- construct the corresponding quantum circuit from first principles
+- validate simulation results against theoretical predictions
+- explain the source of the algorithm's quantum advantage
+
+## Learning progression
+
+| Stage         | Concept                        |
+| ------------- | ------------------------------ |
+| Bell states   | Superposition and entanglement |
+| Deutsch       | Oracle-based computation       |
+| Deutsch–Jozsa | Quantum query complexity       |
+| Grover        | Amplitude amplification        |
+
 
 ## Repository structure
 
@@ -49,9 +60,13 @@ and demonstrates how success probability scales with iteration count and qubit n
 
 ## Environment & reproducibility
 
-- Python 3.13, Qiskit 2.4.1, Qiskit-Aer, Jupyter (see `requirements.txt` for pinned versions)
-- **Known issue:** Qiskit-Aer has a reported import hang on Windows + Python 3.13 on
-  first run; it resolves on its own. `StatevectorSampler` works as a fallback backend.
+Tested using:
+- Python 3.13
+- Qiskit 2.4.1
+- Qiskit Aer
+
+**Known issue:** Qiskit-Aer has a reported import hang on Windows + Python 3.13 on
+first run; it resolves on its own. `StatevectorSampler` works as a fallback backend.
 
 To reproduce:
 ```bash
@@ -65,12 +80,15 @@ jupyter notebook notebooks/
 
 - Nielsen, M. & Chuang, I., *Quantum Computation and Quantum Information*, Ch. 1–4
 - IBM Quantum Learning modules (Basics of Quantum Information, Quantum Algorithms)
+- Grover, L. K. (1996). A fast quantum mechanical algorithm for database search.
 
-## Roadmap
+## Future Work
 
-This repository is scoped to foundational, non-variational quantum algorithms. Follow-on
-work extending these ideas to hybrid quantum-classical methods (Variational Quantum
-Eigensolver for molecular systems) continues in a separate repository: [link once created].
+Potential extensions include:
+- Quantum Fourier Transform
+- Quantum Phase Estimation
+- Variational Quantum Eigensolver
+- Quantum Approximate Optimization Algorithm (QAOA)
 
 ## Development log
 

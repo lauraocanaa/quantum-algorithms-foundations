@@ -27,9 +27,8 @@ fallback backend.
 - **Implemented:** 2-qubit Grover's algorithm — built a phase oracle marking a target bitstring via X gates conjugating a controlled-Z (flipping 0-bits before/after the CZ so the phase flip lands only on the marked state), and a diffusion operator (H⊗H, reflection about `|00⟩` reusing the oracle construction, H⊗H). Marked `|11⟩` with 1 iteration — the theoretically optimal k for N=4, M=1. Measured 100% success (1024/1024 shots), matching the exact-resonance prediction for this configuration.
 - **Implemented:** 3-qubit Grover's algorithm — generalized the oracle and diffusion operator to 3 qubits using a multi-controlled Z built from H + CCX + H on the target qubit (the 3-qubit analogue of the 2-qubit CZ), with the same conjugate-flip structure to mark an arbitrary target state. Marked `|101⟩` with k=2 iterations, chosen via k = round((π/4)√8 − 0.5) for N=8, M=1. Measured 94.04% success vs a theoretical 94.5% — illustrating the near-resonance case, where the optimal integer iteration count doesn't land exactly on the amplitude peak (unlike the 2-qubit case above, which hits exact resonance).
 
-## Notes on this log
+## Week 4
 
-This is a working log, not a polished writeup — it exists to track what was studied and
-built over the course of the project. Cleaned-up derivations, validated results, and
-final implementations are documented in the individual notebooks and summarised in the
-main README.
+- **Implemented:** Infinite square well solved via finite-difference discretization (tridiagonal Hamiltonian, natural units ħ=m=L=1). Validated against analytic eigenvalues E_n = n²π²/2. Convergence rate measured at 1.998 (theoretical prediction: 2.0), confirming O(h²) accuracy of the central difference scheme.
+Eigenvector validation complete: numerical eigenvectors (N=500) match analytic ψₙ(x)=√(2/L)sin(nπx/L) for n=1,2,3 to visual precision. Eigenvalue errors: 1.62e-05 (n=1), 2.59e-04 (n=2), 1.31e-03 (n=3), consistent with expected growth in finite-difference error at higher curvature. Debugged a stale-N grid-spacing mismatch causing a ~π factor amplitude error — dx must be derived from the same N used to build H.
+

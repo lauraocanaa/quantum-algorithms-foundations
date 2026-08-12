@@ -2,99 +2,149 @@
 ![License](https://img.shields.io/badge/License-MIT-green)
 ![Qiskit](https://img.shields.io/badge/Qiskit-2.4.1-purple)
 
-# Quantum Algorithms: Foundations
+# Quantum Algorithms Foundations
 
-This repository implements and validates several of the foundational algorithms of quantum computation using Qiskit.
-Rather than simply reproducing textbook circuits, each notebook develops the mathematical framework behind the algorithm, constructs the quantum circuit from first principles, and compares simulation results with theoretical predictions.
-This repository was developed independently alongside my undergraduate Physics studies as part of a broader interest in computational physics and quantum computing.
+A computational introduction to fundamental quantum algorithms implemented using **Python** and **Qiskit**.
 
-## Overview
-| # | Algorithm | Concept demonstrated | Qubits | Validation Results |
-|---|-----------|----------------------|--------|------------|
-| 01 | Bell state | Entanglement, superposition | 2 | 50.6% \|00⟩ / 49.4% \|11⟩, 0% leakage into \|01⟩/\|10⟩ (1000 shots) — consistent with ideal Bell state within statistical noise |
-| 02 | Deutsch's algorithm | Query complexity separation, oracle design | 1 | All 4 oracle cases verified against expected output |
-| 03 | Deutsch–Jozsa (n-qubit) | Generalised oracle, exponential classical/quantum query gap | n = 2, 3, 4 | Constant (f=0, f=1) and balanced oracles correctly classified with 100% measurement consistency at every tested n (1024/1024 shots each) |
-| 04 | Grover's algorithm | Amplitude amplification | 2 | Measured: 100% (1024/1024 shots) vs theoretical 100% (exact resonance at k=1 iteration, N=4, M=1) |
-| 05 | Grover's algorithm | Amplitude amplification, iteration-count scaling | 3 | Measured: 94.04% vs theoretical 94.5% |
+This project explores the connection between the mathematical ideas behind quantum algorithms and their implementation as quantum circuits. The notebooks cover superposition, entanglement, quantum interference, phase kickback, quantum oracles, and amplitude amplification through small-scale simulations.
 
-![Bell state measurement outcomes](assets/bell_state_histogram.png)
+![3-Qubit Grover measurement distribution](assets/grover_3qubit_histogram.png)
 
-![3-qubit Grover measurement distribution](assets/grover_3qubit_histogram.png)
+---
 
-## Objectives
+## Notebooks
 
-Each notebook aims to:
-- derive the mathematical foundations of the algorithm
-- construct the corresponding quantum circuit from first principles
-- validate simulation results against theoretical predictions
-- explain the source of the algorithm's quantum advantage
+| Notebook | Topic | Main concepts |
+|---|---|---|
+| `01_bell_state.ipynb` | Bell State | Superposition, entanglement, measurement |
+| `02_deutsch_algorithm.ipynb` | Deutsch's Algorithm | Quantum interference, phase kickback |
+| `03_deutsch_jozsa_nqubit.ipynb` | Deutsch-Jozsa Algorithm | Constant and balanced functions |
+| `04_grover_2qubit.ipynb` | Grover's Algorithm | Oracle, diffusion, amplitude amplification |
+| `05_grover_3qubit.ipynb` | Grover's Algorithm | Search spaces, iteration count, validation |
 
-## Learning progression
+The notebooks are presented in a logical progression from basic quantum states and circuits to multi-qubit quantum algorithms.
 
-| Stage         | Concept                        |
-| ------------- | ------------------------------ |
-| Bell states   | Superposition and entanglement |
-| Deutsch       | Oracle-based computation       |
-| Deutsch–Jozsa | Quantum query complexity       |
-| Grover        | Amplitude amplification        |
+---
 
+## Key Results
 
-## Repository structure
+### Bell State
 
-```
-.
+The Bell-state simulation produced only the `00` and `11` measurement outcomes, as expected for
+
+$$
+|\Phi^+\rangle =
+\frac{1}{\sqrt{2}}(|00\rangle + |11\rangle).
+$$
+
+For 1000 shots:
+
+~~~
+{'11': 514, '00': 486}
+~~~
+
+### Deutsch-Jozsa
+
+The implementation was tested for $n=2$, $3$, and $4$ qubits. The constant and balanced oracles produced the expected measurement behaviour.
+
+### Grover's Algorithm
+
+For the 3-qubit example, the marked state was
+
+$$
+|101\rangle
+$$
+
+and two Grover iterations were used.
+
+The simulation gave:
+
+~~~
+{'101': 970,
+ '111': 9,
+ '010': 6,
+ '000': 8,
+ '011': 9,
+ '110': 6,
+ '001': 8,
+ '100': 8}
+~~~
+
+This corresponds to a measured probability of
+
+$$
+\frac{970}{1024}\approx94.7\%.
+$$
+
+The result is close to the theoretical success probability of approximately $94.5\%$.
+
+---
+
+## Technologies
+
+- **Python**
+- **Qiskit**
+- **Qiskit Aer**
+- **Matplotlib**
+- **Jupyter Notebooks**
+
+The circuits are evaluated using an ideal quantum simulator.
+
+---
+
+## Repository Structure
+
+~~~
+quantum-algorithms-foundations/
+│
+├── assets/
+│   ├── bell_state_histogram.png
+│   ├── grover_2qubit_histogram.png
+│   └── grover_3qubit_histogram.png
+│
 ├── notebooks/
 │   ├── 01_bell_state.ipynb
 │   ├── 02_deutsch_algorithm.ipynb
 │   ├── 03_deutsch_jozsa_nqubit.ipynb
 │   ├── 04_grover_2qubit.ipynb
 │   └── 05_grover_3qubit.ipynb
-├── notes/
-│   └── progress-log.md
-├── papers/
-├── assets/
-├── requirements.txt
+│
+├── .gitignore
 ├── LICENSE
-└── README.md
-```
+├── README.md
+└── requirements.txt
+~~~
 
-## Environment & reproducibility
+---
 
-Tested using:
-- Python 3.13
-- Qiskit 2.4.1
-- Qiskit Aer
+## Getting Started
 
-**Known issue:** Qiskit-Aer has a reported import hang on Windows + Python 3.13 on
-first run; it resolves on its own. `StatevectorSampler` works as a fallback backend.
+Clone the repository and install the dependencies:
 
-To reproduce:
-```bash
-python -m venv venv
-source venv/bin/activate  # or venv\Scripts\activate on Windows
+~~~bash
+git clone https://github.com/lauraocanaa/quantum-algorithms-foundations.git
+cd quantum-algorithms-foundations
 pip install -r requirements.txt
-jupyter notebook notebooks/
-```
+~~~
 
-## References
+Launch Jupyter:
 
-- Nielsen, M. & Chuang, I., *Quantum Computation and Quantum Information*, Ch. 1–4
-- IBM Quantum Learning modules (Basics of Quantum Information, Quantum Algorithms)
-- Grover, L. K. (1996). A fast quantum mechanical algorithm for database search.
+~~~bash
+jupyter notebook
+~~~
 
-## Future Work
+Then open the notebooks in the `notebooks/` directory.
 
-Potential extensions include:
-- Quantum Fourier Transform
-- Quantum Phase Estimation
-- Variational Quantum Eigensolver
-- Quantum Approximate Optimization Algorithm (QAOA)
+---
 
-## Development log
+## Scope
 
-A week-by-week log of study and implementation notes is kept in
-[`notes/progress-log.md`](notes/progress-log.md).
+This project focuses on small-scale, ideal simulations designed to make the underlying algorithms and their circuit implementations easy to inspect and understand.
+
+Possible extensions include testing the circuits on real quantum hardware, introducing noise models, and extending the algorithms to larger systems.
+
+---
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+This project is licensed under the terms of the license included in this repository.
